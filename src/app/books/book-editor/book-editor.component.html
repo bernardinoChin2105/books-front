@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Agregar libro</h1>
+<div mat-dialog-content>
+    <form [formGroup]="BookForm" class="frm-book-editor">
+
+        <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Título</mat-label>
+            <input matInput formControlName="title" maxlength="100">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Autor</mat-label>
+            <input matInput formControlName="author" maxlength="100">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Año</mat-label>
+            <input matInput type="text" formControlName="year">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Categoría</mat-label>
+            <mat-select formControlName="category">
+                <mat-option value="">Seleccione una categoría</mat-option>
+                <mat-option *ngFor="let item of data" [value]="item.id">{{ item.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button cdkFocusInitial color="accent" (click)="onOkClick()"
+        [disabled]="BookForm.invalid">Guardar</button>
+</div>

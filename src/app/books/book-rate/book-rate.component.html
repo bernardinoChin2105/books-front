@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Calificación</h1>
+<div mat-dialog-content>
+    <p>En un rango de 1 al 5, donde 1 es muy poco probable y 5 es muy probable, ¿Recomendarías este libro a un conocido?
+    </p>
+    <mat-slider thumbLabel tickInterval="auto" min="1" max="5" step="1" [(ngModel)]="data.rate"
+        aria-label="Calificación">
+    </mat-slider>
+    <p>Calificación: {{ data.rate }}</p>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="accent" (click)="onOkClick()" cdkFocusInitial>Guardar</button>
+</div>

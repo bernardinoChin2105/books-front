@@ -1,0 +1,27 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Búsqueda
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <form class="book-filter-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Título</mat-label>
+            <input matInput #title (input)="onSelectedTitleChange($event)">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Categoría</mat-label>
+            <mat-select [(value)]="selectedCategory" (selectionChange)="onSelectedCategoryChange($event)"> 
+                <mat-option value="" >Seleccione una categoría</mat-option>
+                <mat-option *ngFor="let item of categories" [value]="item.id">{{ item.name }}</mat-option>                
+            </mat-select>
+        </mat-form-field>
+
+        <button type="button" mat-raised-button color="accent" class="clear-filter" (click)="onClear()">
+            Limpiar
+        </button>
+    </form>
+</mat-expansion-panel>

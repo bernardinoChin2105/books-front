@@ -1,3 +1,8 @@
 export const environment = {
-  production: true
+  production: true,
+  apiBaseUrl: 'https://localhost:44317/api',
+  endpointsUrl: {
+    books: 'books',
+    categories: 'categories'
+  }
 };
